@@ -1,3 +1,5 @@
 # Knights-Tour
 
-Search, Simulation and Visualization of a [Knight's Tour](https://en.wikipedia.org/wiki/Knight%27s_tour) in Python with `tkinter`.
+A [Knight's Tour](https://en.wikipedia.org/wiki/Knight%27s_tour) is a Hamiltonian Cycle performed by a Knight on the spaces of a chess board.
+
+This repo contains code to search, simulate and visualize (with `tkinter`) a Knight's Tour.

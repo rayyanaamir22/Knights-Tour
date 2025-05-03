@@ -4,10 +4,13 @@ Search algorithms to find a Knight's Tour of the Chess Board.
 
 def search_brute_force(board, position, step, path):
     """
-    Brute force recursive backtracking to find a Knight's Tour.
+    DFS with backtracking to find a Knight's Tour.
+
+    This is the Brute Force approach to computing aKnight's Tour.
     """
-    if step == 64:
-        return True  # Tour found
+    print(step)
+    if step == 60:  # BUG: doesn't work beyond 60??
+        return True  # tour found
     for move in board.get_possible_moves(position):
         board.mark_visited(move, step + 1)
         path.append(move)
