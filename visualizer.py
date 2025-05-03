@@ -17,13 +17,29 @@ class ChessBoardVisualizer:
         self.canvas.pack()
         self.square_size = 50
         
-        # BUG: neither of these render anything
         # Try to load knight image (fall back to red dot if not found)
+        self.knight_img = None
         try:
-            self.knight_img = PhotoImage(file="assets/knight.png").subsample(8, 8)
-            self.knight = self.canvas.create_image(0, 0, image=self.knight_img, anchor='nw')
-        except:
-            self.knight_img = None
+            # Load image first without subsampling
+            self.knight_img = tk.PhotoImage(file="assets/knight.png")
+            
+            # Calculate scaling (adjust numbers based on your image size)
+            if self.knight_img.width() > 40:  # if image is too big
+                subsample = max(1, self.knight_img.width() // 40)
+                self.knight_img = self.knight_img.subsample(subsample)
+            
+            # Create image at starting position with CENTER anchor
+            start_x = 25  # center of first square (0,0)
+            start_y = 25
+            self.knight = self.canvas.create_image(
+                start_x,
+                start_y,
+                image=self.knight_img,
+                anchor='center'  # THIS IS CRUCIAL
+            )
+        except Exception as e:
+            print(f"Image load error: {e}")
+            # fallback to red dot
             self.knight = self.canvas.create_oval(0, 0, 10, 10, fill='red')
         
         self.draw_board()
