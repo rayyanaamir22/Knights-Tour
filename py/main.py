@@ -3,10 +3,10 @@ Launch a search agent and visualize the results.
 """
 
 # utils
-from board import ChessBoard
-from knight import Knight
-from search import search_brute_force, search_warnsdorff, search_divide_conquer
-from visualizer import ChessBoardVisualizer
+from python.board import ChessBoard
+from python.knight import Knight
+from python.search import search_brute_force, search_warnsdorff, search_divide_conquer
+from python.visualizer import ChessBoardVisualizer
 
 # driver
 if __name__ == '__main__':

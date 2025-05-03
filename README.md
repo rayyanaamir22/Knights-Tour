@@ -6,5 +6,5 @@ This repo contains code to search, simulate and visualize (with the builtin `tki
 
 To run:
 ```bash
-python main.py
+python py/main.py
 ```
