@@ -13,6 +13,23 @@ class ChessBoard:
         row, col = position
         return 0 <= row < 8 and 0 <= col < 8
 
+    def is_within_quadrant(self, position, size, start_row=0, start_col=0):
+        """
+        Check if a position is within a quadrant of given size starting at (start_row, start_col).
+        
+        Args:
+            position: Tuple (row, col) to check
+            size: Size of the quadrant (e.g., 4 for a 4x4 quadrant)
+            start_row: Starting row of the quadrant
+            start_col: Starting column of the quadrant
+        
+        Returns:
+            bool: True if position is within the quadrant, False otherwise
+        """
+        row, col = position
+        return (start_row <= row < start_row + size and 
+                start_col <= col < start_col + size)
+
     def is_visited(self, position):
         """
         Check if a position has been visited.
